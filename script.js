@@ -1,5 +1,5 @@
 function getComputerChoice() {
-    computerChoice = Math.floor(Math.random() * 3)
+    let computerChoice = Math.floor(Math.random() * 3)
     return computerChoice
 }
 
@@ -45,8 +45,9 @@ function playRound(playerSelection, computerChoice) {
     }
 }
 
+//Generates a prompt to ask for a player choice and turns it into an number from 0 to 2. (0=rock, 1=paper, 2=scissors)
 function playerChoice() {
-    choice = prompt("Choose either Rock, Paper or Scissors").toLowerCase()
+    let choice = prompt("Choose either Rock, Paper or Scissors").toLowerCase()
 
     if (choice == "rock") {
         choice = 0
@@ -69,10 +70,30 @@ function playerChoice() {
     }
 }
 
+//Checks the score of the player vs the computer in the main game function and declares a winner.
+function checkScore(playerScore, computerScore) {
+    if (playerScore == computerScore) {
+        console.log("It's a tie!")
+    }
+
+    else if (playerScore > computerScore) {
+        console.log("Player wins!")
+    }
+
+    else if (playerScore < computerScore) {
+        console.log("Computer wins!")
+    }
+
+    else {
+        console.log("Something went horribly wrong...")
+    }
+}
+
+//Main game function. Runs the game in a while loop until a score reaches 5, then runs checkScore function.
 function game() {
 
-    var playerScore = 0
-    var computerScore = 0
+    let playerScore = 0
+    let computerScore = 0
 
     while (playerScore < 5 && computerScore < 5) {
         console.log("Player Score: ", playerScore)
@@ -101,24 +122,11 @@ function game() {
         }
     }
 
-    if (playerScore == computerScore) {
-        console.log("It's a tie!")
-    }
+    checkScore(playerScore, computerScore)
 
-    else if (playerScore > computerScore) {
-        console.log("Player wins!")
-    }
-
-    else if (playerScore < computerScore) {
-        console.log("Computer wins!")
-    }
-
-    else {
-        console.log("Something went horribly wrong...")
-    }
 }
 
-var playerWin = false
-var playerLose = false
+let playerWin = false
+let playerLose = false
 
 game()
