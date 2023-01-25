@@ -11,26 +11,32 @@ function playRound(playerSelection, computerChoice) {
     }
 
     else if (playerSelection == 0 && computerChoice == 1) {
+        console.log("Paper beats Rock. You lose!")
         return playerLose = true
     }
 
     else if (playerSelection == 0 && computerChoice == 2) {
+        console.log("Rock beats Scissors. You win!")
         return playerWin = true
     }
 
     else if (playerSelection == 1 && computerChoice == 2) {
+        console.log("Scissors beats Paper. You lose!")
         return playerLose = true
     }
 
     else if (playerSelection == 1 && computerChoice == 0) {
+        console.log("Paper beats Rock. You win!")
         return playerWin = true
     }
 
     else if (playerSelection == 2 && computerChoice == 0) {
+        console.log("Rock beats Scissors. You lose!")
         return playerLose = true
     }
 
     else if (playerSelection == 2 && computerChoice == 1) {
+        console.log("Scissors beats Paper. You win!")
         return playerWin = true
     }
 
