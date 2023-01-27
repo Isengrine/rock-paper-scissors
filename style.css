@@ -20,6 +20,13 @@ html, body {
     flex: 1;
 }
 
+.roundtxt {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
 .scores {
     display: flex;
     flex: 1;
