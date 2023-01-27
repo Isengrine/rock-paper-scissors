@@ -24,43 +24,50 @@ function playRound(playerSelection, computerChoice) {
     if (playerSelection === computerChoice) {
         playerWin = true;
         computerWin = true;
-        console.log("It's a tie!");
+        document.getElementById("roundwinner").textContent =
+        "It's a tie!";
         return;
     }
 
     else if (playerSelection == 0 && computerChoice == 1) {
-        console.log("Paper beats Rock. You lose!");
         computerWin = true;
+        document.getElementById("roundwinner").textContent =
+        "You lose!";
         return;
     }
 
     else if (playerSelection == 0 && computerChoice == 2) {
-        console.log("Rock beats Scissors. You win!");
         playerWin = true;
+        document.getElementById("roundwinner").textContent =
+        "You win!";
         return;
     }
 
     else if (playerSelection == 1 && computerChoice == 2) {
-        console.log("Scissors beats Paper. You lose!");
         computerWin = true;
+        document.getElementById("roundwinner").textContent =
+        "You lose!";
         return;
     }
 
     else if (playerSelection == 1 && computerChoice == 0) {
-        console.log("Paper beats Rock. You win!");
         playerWin = true;
+        document.getElementById("roundwinner").textContent =
+        "You win!";
         return;
     }
 
     else if (playerSelection == 2 && computerChoice == 0) {
-        console.log("Rock beats Scissors. You lose!");
         computerWin = true;
+        document.getElementById("roundwinner").textContent =
+        "You lose!";
         return;
     }
 
     else if (playerSelection == 2 && computerChoice == 1) {
-        console.log("Scissors beats Paper. You win!");
         playerWin = true;
+        document.getElementById("roundwinner").textContent =
+        "You win!";
         return;
     }
 }
