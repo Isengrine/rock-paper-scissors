@@ -86,24 +86,20 @@ function game() {
         if (playerWin == true && computerWin == true) {
             playerWin = false;
             computerWin = false;
-            console.log("Player Score: ", playerScore);
-            console.log("Computer Score: ", computerScore);
             break;
         }
 
         else if (playerWin == true) {
-            playerScore += 1;
+            playerScore++;
+            document.getElementById("pscore").textContent = playerScore;
             playerWin = false;
-            console.log("Player Score: ", playerScore);
-            console.log("Computer Score: ", computerScore);
             break;
         }
 
         else if (computerWin == true) {
-            computerScore += 1;
+            computerScore++;
+            document.getElementById("cscore").textContent = computerScore;
             computerWin = false;
-            console.log("Player Score: ", playerScore);
-            console.log("Computer Score: ", computerScore);
             break;
         }
     }
