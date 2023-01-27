@@ -4,7 +4,8 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-// Generates a prompt to ask for a player choice and turns it into an number from 0 to 2. (0=rock, 1=paper, 2=scissors)
+// Transforms playerchoice from str to int
+// so it can be evaluated against computerchoice in playRound function
 function playerChoice(choice) {
     if (choice == "rock") {
         return choice = 0;
@@ -24,57 +25,61 @@ function playRound(playerSelection, computerChoice) {
     if (playerSelection === computerChoice) {
         playerWin = true;
         computerWin = true;
-        document.getElementById("roundwinner").textContent =
+        document.getElementById("roundtxt").textContent =
         "It's a tie!";
         return;
     }
 
-    else if (playerSelection == 0 && computerChoice == 1) {
-        computerWin = true;
-        document.getElementById("roundwinner").textContent =
-        "You lose!";
-        return;
+    else if (playerSelection == 0) {
+        if (computerChoice == 1) {
+            computerWin = true;
+            document.getElementById("roundtxt").textContent =
+            "You lose!";
+            return;
+        }
+
+        else {
+            playerWin = true;
+            document.getElementById("roundtxt").textContent =
+            "You win!";
+            return;
+        }
     }
 
-    else if (playerSelection == 0 && computerChoice == 2) {
-        playerWin = true;
-        document.getElementById("roundwinner").textContent =
-        "You win!";
-        return;
+    else if (playerSelection == 1) {
+        if (computerChoice == 2) {
+            computerWin = true;
+            document.getElementById("roundtxt").textContent =
+            "You lose!";
+            return;
+        }
+
+        else {
+            playerWin = true;
+            document.getElementById("roundtxt").textContent =
+            "You win!";
+            return; 
+        }
     }
 
-    else if (playerSelection == 1 && computerChoice == 2) {
-        computerWin = true;
-        document.getElementById("roundwinner").textContent =
-        "You lose!";
-        return;
-    }
+    else if (playerSelection == 2) {
+        if (computerChoice == 0) {
+            computerWin = true;
+            document.getElementById("roundtxt").textContent =
+            "You lose!";
+            return;
+        }
 
-    else if (playerSelection == 1 && computerChoice == 0) {
-        playerWin = true;
-        document.getElementById("roundwinner").textContent =
-        "You win!";
-        return;
-    }
-
-    else if (playerSelection == 2 && computerChoice == 0) {
-        computerWin = true;
-        document.getElementById("roundwinner").textContent =
-        "You lose!";
-        return;
-    }
-
-    else if (playerSelection == 2 && computerChoice == 1) {
-        playerWin = true;
-        document.getElementById("roundwinner").textContent =
-        "You win!";
-        return;
+        else {
+            playerWin = true;
+            document.getElementById("roundtxt").textContent =
+            "You win!";
+            return;
+        }
     }
 }
 
-let rtrt = false
-
-// Checks the score of the player vs the computer in the main game function and declares a winner.
+// Checks the score of the player vs the computer in the main game function and declares a winner
 function checkFinalScore(playerScore, computerScore) {
     if (playerScore > computerScore) {
         rtrt = confirm("You won!\nPlay again?");
@@ -87,6 +92,7 @@ function checkFinalScore(playerScore, computerScore) {
     }
 }
 
+// Restart function
 function restart() {
     if (rtrt == true) {
         location.reload();
@@ -97,7 +103,8 @@ function restart() {
     }
 }
 
-// Main game function. Runs the game in a while loop until a score reaches 5, then runs checkScore function.
+// Runs the game in a while loop until a score reaches 5
+// then runs checkScore function.
 function game() {
     while (playerScore < 5 && computerScore < 5) {
         if (playerWin == true && computerWin == true) {
@@ -126,15 +133,20 @@ function game() {
     }
 }
 
+// Global Variables
 let playerWin = false;
 let computerWin = false;
 let playerScore = 0;
 let computerScore = 0;
+let rtrt = false
 
 const rck = document.querySelector("#rck");
 const ppr = document.querySelector("#ppr");
 const scs = document.querySelector("#scs");
+const egg = document.querySelector("#easteregg");
+const gun = document.querySelector("#gun");
 
+// Buttons
 rck.addEventListener("click", () => {
     let choice = playerChoice("rock");
     let computerChoice = getComputerChoice();

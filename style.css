@@ -26,12 +26,12 @@ html, body {
     flex: 1;
 }
 
-.roundtxt {
+.bodyhead {
     display: flex;
     flex: 1;
     justify-content: center;
     align-items: center;
-    font-size: 36px;
+    font-size: 48px;
     font-weight: bold;
 }
 
@@ -41,7 +41,7 @@ html, body {
     justify-content: space-around;
     align-items: center;
     text-align: center;
-    font-size: 24px;
+    font-size: 36px;
 }
 
 .buttons {
