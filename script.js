@@ -65,18 +65,28 @@ function playRound(playerSelection, computerChoice) {
     }
 }
 
+let rtrt = false
+
 // Checks the score of the player vs the computer in the main game function and declares a winner.
 function checkFinalScore(playerScore, computerScore) {
-    if (playerScore == computerScore) {
-        console.log("It's a tie!");
-    }
-
-    else if (playerScore > computerScore) {
-        console.log("Player wins!");
+    if (playerScore > computerScore) {
+        rtrt = confirm("You won!\nPlay again?");
+        restart();
     }
 
     else if (playerScore < computerScore) {
-        console.log("Computer wins!");
+        rtrt = confirm("The Computer won!\nPlay again?");
+        restart();
+    }
+}
+
+function restart() {
+    if (rtrt == true) {
+        location.reload();
+    }
+
+    else {
+        return;
     }
 }
 
