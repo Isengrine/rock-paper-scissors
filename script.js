@@ -77,9 +77,17 @@ function playRound(playerSelection, computerChoice) {
             return;
         }
     }
+
+    else if (playerSelection == "gun") {
+        playerWin = true;
+        document.getElementById("roundtxt").textContent = 
+        "Gun beats everything!";
+        return;
+    }
 }
 
 // Checks the score of the player vs the computer in the main game function and declares a winner
+// TODO: Make this one better
 function checkFinalScore(playerScore, computerScore) {
     if (playerScore > computerScore) {
         rtrt = confirm("You won!\nPlay again?");
@@ -133,18 +141,34 @@ function game() {
     }
 }
 
+function easterEgg() {
+    if (easterEggCounter == 3) {
+        const gun = document.createElement("button");
+        gun.setAttribute("id", "gun");
+        btns.appendChild(gun);
+        gun.innerHTML = "<img src=./images/gun.png>";
+        document.getElementById("title").textContent =
+        "Rock, Paper, Scissors and Gun!";
+        gun.addEventListener("click", () => {
+            let choice = "gun";
+            playRound(choice);
+            game()});
+    }
+}
+
 // Global Variables
 let playerWin = false;
 let computerWin = false;
 let playerScore = 0;
 let computerScore = 0;
-let rtrt = false
+let rtrt = false;
+let easterEggCounter = 0;
 
+const btns = document.querySelector(".buttons");
 const rck = document.querySelector("#rck");
 const ppr = document.querySelector("#ppr");
 const scs = document.querySelector("#scs");
 const egg = document.querySelector("#easteregg");
-const gun = document.querySelector("#gun");
 
 // Buttons
 rck.addEventListener("click", () => {
@@ -164,3 +188,7 @@ scs.addEventListener("click", () => {
     let computerChoice = getComputerChoice();
     playRound(choice,computerChoice);
     game()});
+
+egg.addEventListener("click", () => {
+    ++easterEggCounter;
+    easterEgg()});
